@@ -89,8 +89,18 @@ const sampleData: OrderRow[] = [
 ];
 
 const StatusRenderer = ({ value }: { value: string }) => {
-  const statusClass = value === "Active" ? "status-active" : value === "Pending" ? "status-pending" : "status-inactive";
-  return <span className={`status-badge ${statusClass}`}>{value}</span>;
+  const isActive = value?.toLowerCase() === "active";
+  const isPending = value?.toLowerCase() === "pending";
+  const colorClass = isActive
+    ? "bg-green-100 text-green-800"
+    : isPending
+    ? "bg-yellow-100 text-yellow-800"
+    : "bg-red-100 text-red-800";
+  return (
+    <span className={`inline-flex px-2 py-1 text-xs rounded-full font-medium ${colorClass}`}>
+      {value || "N/A"}
+    </span>
+  );
 };
 
 const Index = () => {
