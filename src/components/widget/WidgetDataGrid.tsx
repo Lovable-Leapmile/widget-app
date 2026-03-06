@@ -1,8 +1,10 @@
 import { AgGridReact } from "ag-grid-react";
-import { ColDef } from "ag-grid-community";
+import { ColDef, ModuleRegistry, AllCommunityModule } from "ag-grid-community";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 import { useMemo } from "react";
+
+ModuleRegistry.registerModules([AllCommunityModule]);
 
 interface WidgetDataGridProps<T = any> {
   rowData: T[];
