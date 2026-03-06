@@ -31,8 +31,11 @@ const LeapmileLogin = ({
   passwordPlaceholder = "Enter your password",
   submitLabel = "Submit",
   loadingLabel = "Submitting...",
-  footerText = "© 2024 All Rights Reserved | Leapmile Logistics Pvt.Ltd",
-  footerLink = { label: "Terms and Condition & Privacy Policy / Cookies Policy", href: "https://leapmile.com/terms-and-privacy" },
+  footerText = "© 2025 All Rights Reserved | Leapmile Logistics Pvt.Ltd",
+  footerLink = {
+    label: "Terms and Condition & Privacy Policy / Cookies Policy",
+    href: "https://leapmile.com/terms-and-privacy",
+  },
 }: LeapmileLoginProps) => {
   const [identification, setIdentification] = useState("");
   const [password, setPassword] = useState("");
@@ -73,9 +76,7 @@ const LeapmileLogin = ({
             <div className="space-y-6">
               {/* Identification Field */}
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-[hsl(248,61%,22%)]">
-                  {identificationLabel}
-                </label>
+                <label className="text-sm font-semibold text-[hsl(248,61%,22%)]">{identificationLabel}</label>
                 <input
                   type="text"
                   value={identification}
@@ -87,9 +88,7 @@ const LeapmileLogin = ({
 
               {/* Password Field */}
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-[hsl(248,61%,22%)]">
-                  {passwordLabel}
-                </label>
+                <label className="text-sm font-semibold text-[hsl(248,61%,22%)]">{passwordLabel}</label>
                 <input
                   type="password"
                   value={password}
@@ -114,9 +113,7 @@ const LeapmileLogin = ({
 
       {/* Footer */}
       <div className="py-4 text-center space-y-2">
-        <div className="text-sm text-[hsl(248,61%,22%)]">
-          {footerText}
-        </div>
+        <div className="text-sm text-[hsl(248,61%,22%)]">{footerText}</div>
         {footerLink && (
           <a
             href={footerLink.href}
