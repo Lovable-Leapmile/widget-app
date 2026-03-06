@@ -7,7 +7,7 @@ interface WidgetHeaderProps {
   actionLabel?: string;
 }
 
-const WidgetHeader = ({ logoSrc, onAction, actionLabel = "Action" }: WidgetHeaderProps) => {
+const WidgetHeader = ({ title, logoSrc, onAction, actionLabel = "Action" }: WidgetHeaderProps) => {
   return (
     <header className="theme-header flex items-center justify-between px-6 py-3 shadow-sm">
       <div className="flex items-center gap-3">
