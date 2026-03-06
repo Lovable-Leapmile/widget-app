@@ -372,3 +372,16 @@
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--muted-foreground) / 0.4);
 }
+
+/* Leapmile grid purple header override */
+.leapmile-grid .ag-theme-alpine .ag-header {
+  background: hsl(270 60% 95%);
+}
+
+.leapmile-grid .ag-theme-alpine .ag-header-cell {
+  background-color: hsl(270 60% 95%) !important;
+}
+
+.leapmile-grid .ag-theme-alpine .ag-header-cell:hover {
+  background-color: hsl(270 60% 88%) !important;
+}
