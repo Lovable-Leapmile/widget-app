@@ -1,11 +1,5 @@
 import { useState, useMemo } from "react";
-import {
-  WidgetHeader,
-  WidgetFooter,
-  WidgetButton,
-  WidgetTextField,
-  WidgetDataGrid,
-} from "@/components/widget";
+import { WidgetHeader, WidgetFooter, WidgetButton, WidgetTextField, WidgetDataGrid } from "@/components/widget";
 import { ColDef } from "ag-grid-community";
 import { toast } from "sonner";
 
@@ -20,23 +14,82 @@ interface OrderRow {
 }
 
 const sampleData: OrderRow[] = [
-  { id: "ORD-001", customer: "Rahul Sharma", product: "QikPod Mini", quantity: 2, amount: "₹4,500", status: "Active", date: "2026-03-01" },
-  { id: "ORD-002", customer: "Priya Patel", product: "QikPod Pro", quantity: 1, amount: "₹12,000", status: "Pending", date: "2026-03-02" },
-  { id: "ORD-003", customer: "Amit Kumar", product: "QikPod Lite", quantity: 5, amount: "₹8,750", status: "Active", date: "2026-03-03" },
-  { id: "ORD-004", customer: "Sneha Reddy", product: "QikPod Max", quantity: 1, amount: "₹18,500", status: "Inactive", date: "2026-02-28" },
-  { id: "ORD-005", customer: "Vikram Singh", product: "QikPod Mini", quantity: 3, amount: "₹6,750", status: "Active", date: "2026-03-04" },
-  { id: "ORD-006", customer: "Neha Gupta", product: "QikPod Pro", quantity: 2, amount: "₹24,000", status: "Pending", date: "2026-03-05" },
-  { id: "ORD-007", customer: "Arjun Mehta", product: "QikPod Lite", quantity: 4, amount: "₹7,000", status: "Active", date: "2026-03-05" },
-  { id: "ORD-008", customer: "Kavita Nair", product: "QikPod Max", quantity: 1, amount: "₹18,500", status: "Inactive", date: "2026-02-25" },
+  {
+    id: "ORD-001",
+    customer: "Rahul Sharma",
+    product: "QikPod Mini",
+    quantity: 2,
+    amount: "₹4,500",
+    status: "Active",
+    date: "2026-03-01",
+  },
+  {
+    id: "ORD-002",
+    customer: "Priya Patel",
+    product: "QikPod Pro",
+    quantity: 1,
+    amount: "₹12,000",
+    status: "Pending",
+    date: "2026-03-02",
+  },
+  {
+    id: "ORD-003",
+    customer: "Amit Kumar",
+    product: "QikPod Lite",
+    quantity: 5,
+    amount: "₹8,750",
+    status: "Active",
+    date: "2026-03-03",
+  },
+  {
+    id: "ORD-004",
+    customer: "Sneha Reddy",
+    product: "QikPod Max",
+    quantity: 1,
+    amount: "₹18,500",
+    status: "Inactive",
+    date: "2026-02-28",
+  },
+  {
+    id: "ORD-005",
+    customer: "Vikram Singh",
+    product: "QikPod Mini",
+    quantity: 3,
+    amount: "₹6,750",
+    status: "Active",
+    date: "2026-03-04",
+  },
+  {
+    id: "ORD-006",
+    customer: "Neha Gupta",
+    product: "QikPod Pro",
+    quantity: 2,
+    amount: "₹24,000",
+    status: "Pending",
+    date: "2026-03-05",
+  },
+  {
+    id: "ORD-007",
+    customer: "Arjun Mehta",
+    product: "QikPod Lite",
+    quantity: 4,
+    amount: "₹7,000",
+    status: "Active",
+    date: "2026-03-05",
+  },
+  {
+    id: "ORD-008",
+    customer: "Kavita Nair",
+    product: "QikPod Max",
+    quantity: 1,
+    amount: "₹18,500",
+    status: "Inactive",
+    date: "2026-02-25",
+  },
 ];
 
 const StatusRenderer = ({ value }: { value: string }) => {
-  const statusClass =
-    value === "Active"
-      ? "status-active"
-      : value === "Pending"
-      ? "status-pending"
-      : "status-inactive";
+  const statusClass = value === "Active" ? "status-active" : value === "Pending" ? "status-pending" : "status-inactive";
   return <span className={`status-badge ${statusClass}`}>{value}</span>;
 };
 
@@ -59,7 +112,7 @@ const Index = () => {
       },
       { headerName: "Date", field: "date", maxWidth: 130 },
     ],
-    []
+    [],
   );
 
   const filteredData = useMemo(() => {
@@ -68,17 +121,13 @@ const Index = () => {
       (row) =>
         row.customer.toLowerCase().includes(searchTerm.toLowerCase()) ||
         row.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        row.product.toLowerCase().includes(searchTerm.toLowerCase())
+        row.product.toLowerCase().includes(searchTerm.toLowerCase()),
     );
   }, [searchTerm]);
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <WidgetHeader
-        title="Order Management"
-        onAction={() => toast.success("Action triggered!")}
-        actionLabel="New Order"
-      />
+      <WidgetHeader onAction={() => toast.success("Action triggered!")} actionLabel="New Order" />
 
       <main className="flex-1 p-6">
         <div className="mx-auto max-w-6xl animate-fade-in space-y-6">
@@ -143,9 +192,7 @@ const Index = () => {
               columnDefs={columnDefs}
               height="450px"
               paginationPageSize={10}
-              onRowClicked={(e) =>
-                toast.info(`Clicked: ${e.data?.id} - ${e.data?.customer}`)
-              }
+              onRowClicked={(e) => toast.info(`Clicked: ${e.data?.id} - ${e.data?.customer}`)}
             />
           </div>
 
@@ -159,8 +206,12 @@ const Index = () => {
               <WidgetButton variant="ghost">Ghost</WidgetButton>
               <WidgetButton variant="destructive">Destructive</WidgetButton>
               <WidgetButton variant="success">Success</WidgetButton>
-              <WidgetButton variant="primary" size="sm">Small</WidgetButton>
-              <WidgetButton variant="primary" size="lg">Large</WidgetButton>
+              <WidgetButton variant="primary" size="sm">
+                Small
+              </WidgetButton>
+              <WidgetButton variant="primary" size="lg">
+                Large
+              </WidgetButton>
             </div>
           </div>
         </div>
