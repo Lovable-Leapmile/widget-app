@@ -4,6 +4,7 @@ import { WidgetDataGrid } from "@/components/widget";
 import { WidgetTextField } from "@/components/widget";
 import { ColDef } from "ag-grid-community";
 import { toast } from "sonner";
+import leapmileLogo from "@/assets/leapmile-logo.png";
 
 interface ShipmentRow {
   id: string;
@@ -30,11 +31,11 @@ const LeapmileStatusRenderer = ({ value }: { value: string }) => {
   const lower = value?.toLowerCase();
   const colorClass =
     lower === "delivered"
-      ? "bg-purple-100 text-purple-800"
+      ? "bg-green-100 text-green-800"
       : lower === "in transit"
       ? "bg-blue-100 text-blue-800"
       : lower === "pending"
-      ? "bg-amber-100 text-amber-800"
+      ? "bg-yellow-100 text-yellow-800"
       : "bg-red-100 text-red-800";
   return (
     <span className={`inline-flex px-2 py-1 text-xs rounded-full font-medium ${colorClass}`}>
@@ -73,27 +74,33 @@ const Leapmile = () => {
 
   return (
     <div className="leapmile-theme flex min-h-screen flex-col bg-background">
-      {/* Header */}
-      <header className="flex items-center justify-between px-6 py-3 shadow-sm bg-purple-600 text-white">
-        <div className="flex items-center gap-3">
-          <button onClick={() => navigate("/")} className="mr-2 rounded-md px-2 py-1 text-sm hover:bg-purple-700 transition-colors">
-            ← Back
-          </button>
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-purple-600 font-bold text-sm">L</div>
-          <h1 className="text-lg font-semibold">Leapmile Admin</h1>
+      {/* Header - gradient matching Admin App */}
+      <div className="mx-4 mt-4 mb-6">
+        <div className="bg-gradient-to-r from-[#351C75] via-[#5B4596] to-[#8E7CC3] rounded-3xl shadow-2xl p-5 border border-white/20">
+          <div className="flex items-center justify-between max-w-6xl mx-auto">
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => navigate("/")}
+                className="text-white/80 hover:text-white text-sm transition-colors"
+              >
+                ← Back
+              </button>
+              <img src={leapmileLogo} alt="Leapmile" className="h-8 w-auto" />
+            </div>
+            <button
+              onClick={() => toast.success("Action triggered!")}
+              className="rounded-xl bg-white/20 backdrop-blur-sm text-white px-4 py-2 text-sm font-medium hover:bg-white/30 transition-all border border-white/20"
+            >
+              New Shipment
+            </button>
+          </div>
         </div>
-        <button
-          onClick={() => toast.success("Action triggered!")}
-          className="rounded-md bg-white text-purple-600 px-4 py-2 text-sm font-medium hover:bg-purple-50 transition-colors"
-        >
-          New Shipment
-        </button>
-      </header>
+      </div>
 
-      <main className="flex-1 p-6">
-        <div className="mx-auto max-w-6xl animate-fade-in space-y-6">
+      <main className="flex-1 px-4 pb-8">
+        <div className="mx-auto max-w-6xl space-y-6">
           {/* Filters */}
-          <div className="flex flex-wrap items-end gap-4 rounded-lg border border-border bg-card p-4 shadow-sm">
+          <div className="flex flex-wrap items-end gap-4 rounded-xl border border-gray-200 bg-white p-4 shadow-lg">
             <div className="flex-1 min-w-[200px]">
               <WidgetTextField
                 label="Search Shipments"
@@ -105,13 +112,13 @@ const Leapmile = () => {
             <div className="flex gap-2">
               <button
                 onClick={() => toast.info("Search applied")}
-                className="inline-flex items-center justify-center rounded-md bg-purple-600 text-white px-4 h-10 text-sm font-medium hover:bg-purple-700 transition-colors"
+                className="inline-flex items-center justify-center rounded-xl bg-[#351C75] text-white px-4 h-10 text-sm font-bold hover:bg-[#5B4596] transition-all shadow-lg"
               >
                 Search
               </button>
               <button
                 onClick={() => setSearchTerm("")}
-                className="inline-flex items-center justify-center rounded-md border border-border bg-background text-foreground px-4 h-10 text-sm font-medium hover:bg-accent transition-colors"
+                className="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-[#20124D] px-4 h-10 text-sm font-medium hover:bg-gray-100 transition-all"
               >
                 Clear
               </button>
@@ -120,25 +127,25 @@ const Leapmile = () => {
 
           {/* Summary cards */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
-            <div className="rounded-lg border border-border bg-card p-4 shadow-sm">
-              <p className="text-sm text-muted-foreground">Total Shipments</p>
-              <p className="text-2xl font-bold text-foreground">{sampleData.length}</p>
+            <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-lg">
+              <p className="text-sm font-medium text-[#20124D]">Total Shipments</p>
+              <p className="text-2xl font-bold text-[#351C75]">{sampleData.length}</p>
             </div>
-            <div className="rounded-lg border border-border bg-card p-4 shadow-sm">
-              <p className="text-sm text-muted-foreground">Delivered</p>
-              <p className="text-2xl font-bold text-purple-600">
+            <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-lg">
+              <p className="text-sm font-medium text-[#20124D]">Delivered</p>
+              <p className="text-2xl font-bold text-green-600">
                 {sampleData.filter((r) => r.status === "Delivered").length}
               </p>
             </div>
-            <div className="rounded-lg border border-border bg-card p-4 shadow-sm">
-              <p className="text-sm text-muted-foreground">In Transit</p>
+            <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-lg">
+              <p className="text-sm font-medium text-[#20124D]">In Transit</p>
               <p className="text-2xl font-bold text-blue-600">
                 {sampleData.filter((r) => r.status === "In Transit").length}
               </p>
             </div>
-            <div className="rounded-lg border border-border bg-card p-4 shadow-sm">
-              <p className="text-sm text-muted-foreground">Pending</p>
-              <p className="text-2xl font-bold text-amber-600">
+            <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-lg">
+              <p className="text-sm font-medium text-[#20124D]">Pending</p>
+              <p className="text-2xl font-bold text-yellow-600">
                 {sampleData.filter((r) => r.status === "Pending").length}
               </p>
             </div>
@@ -157,12 +164,12 @@ const Leapmile = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-border bg-card px-6 py-3">
-        <p className="text-center text-xs text-muted-foreground">
-          © 2026 Leapmile. All rights reserved.
-        </p>
-      </footer>
+      {/* Footer - matching Admin App style */}
+      <div className="py-4 text-center">
+        <div className="inline-block bg-white/60 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-lg border border-white/30">
+          <span className="text-sm text-[#20124D] font-medium">© 2026 Leapmile Logistics Pvt.Ltd</span>
+        </div>
+      </div>
     </div>
   );
 };
