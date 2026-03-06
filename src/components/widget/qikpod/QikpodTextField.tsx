@@ -1,13 +1,13 @@
 import { InputHTMLAttributes, forwardRef } from "react";
 import { cn } from "@/lib/utils";
 
-interface WidgetTextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
+interface QikpodTextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: string;
   helperText?: string;
 }
 
-const WidgetTextField = forwardRef<HTMLInputElement, WidgetTextFieldProps>(
+const QikpodTextField = forwardRef<HTMLInputElement, QikpodTextFieldProps>(
   ({ label, error, helperText, className, ...props }, ref) => {
     return (
       <div className="flex flex-col gap-1.5">
@@ -38,6 +38,6 @@ const WidgetTextField = forwardRef<HTMLInputElement, WidgetTextFieldProps>(
   }
 );
 
-WidgetTextField.displayName = "WidgetTextField";
+QikpodTextField.displayName = "QikpodTextField";
 
-export default WidgetTextField;
+export default QikpodTextField;

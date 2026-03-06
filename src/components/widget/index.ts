@@ -1,5 +1,2 @@
-export { default as WidgetHeader } from "./WidgetHeader";
-export { default as WidgetFooter } from "./WidgetFooter";
-export { default as WidgetButton } from "./WidgetButton";
-export { default as WidgetTextField } from "./WidgetTextField";
-export { default as WidgetDataGrid } from "./WidgetDataGrid";
+export { QikpodHeader, QikpodFooter, QikpodButton, QikpodTextField, QikpodDataGrid } from "./qikpod";
+export { LeapmileHeader, LeapmileFooter, LeapmileButton, LeapmileTextField, LeapmileDataGrid } from "./leapmile";

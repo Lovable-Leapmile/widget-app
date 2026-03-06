@@ -6,7 +6,7 @@ import { useMemo } from "react";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
-interface WidgetDataGridProps<T = any> {
+interface QikpodDataGridProps<T = any> {
   rowData: T[];
   columnDefs: ColDef<T>[];
   height?: string;
@@ -15,14 +15,14 @@ interface WidgetDataGridProps<T = any> {
   onRowClicked?: (event: any) => void;
 }
 
-const WidgetDataGrid = <T,>({
+const QikpodDataGrid = <T,>({
   rowData,
   columnDefs,
   height = "400px",
   pagination = true,
   paginationPageSize = 10,
   onRowClicked,
-}: WidgetDataGridProps<T>) => {
+}: QikpodDataGridProps<T>) => {
   const defaultColDef = useMemo<ColDef>(
     () => ({
       sortable: true,
@@ -50,4 +50,4 @@ const WidgetDataGrid = <T,>({
   );
 };
 
-export default WidgetDataGrid;
+export default QikpodDataGrid;

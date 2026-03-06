@@ -2,7 +2,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { ButtonHTMLAttributes, forwardRef } from "react";
 
-const widgetButtonVariants = cva(
+const qikpodButtonVariants = cva(
   "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
@@ -27,23 +27,23 @@ const widgetButtonVariants = cva(
   }
 );
 
-interface WidgetButtonProps
+interface QikpodButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof widgetButtonVariants> {}
+    VariantProps<typeof qikpodButtonVariants> {}
 
-const WidgetButton = forwardRef<HTMLButtonElement, WidgetButtonProps>(
+const QikpodButton = forwardRef<HTMLButtonElement, QikpodButtonProps>(
   ({ className, variant, size, ...props }, ref) => {
     return (
       <button
         ref={ref}
-        className={cn(widgetButtonVariants({ variant, size }), className)}
+        className={cn(qikpodButtonVariants({ variant, size }), className)}
         {...props}
       />
     );
   }
 );
 
-WidgetButton.displayName = "WidgetButton";
+QikpodButton.displayName = "QikpodButton";
 
-export default WidgetButton;
-export { widgetButtonVariants };
+export default QikpodButton;
+export { qikpodButtonVariants };

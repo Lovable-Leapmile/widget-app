@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import qikpodLogo from "@/assets/qikpod-logo.png";
 
-interface WidgetHeaderProps {
+interface QikpodHeaderProps {
   title?: string;
   logoSrc?: string;
   onAction?: () => void;
@@ -9,7 +9,7 @@ interface WidgetHeaderProps {
   showBack?: boolean;
 }
 
-const WidgetHeader = ({ title, logoSrc, onAction, actionLabel = "Action", showBack = false }: WidgetHeaderProps) => {
+const QikpodHeader = ({ title, logoSrc, onAction, actionLabel = "Action", showBack = false }: QikpodHeaderProps) => {
   const navigate = useNavigate();
 
   return (
@@ -35,4 +35,4 @@ const WidgetHeader = ({ title, logoSrc, onAction, actionLabel = "Action", showBa
   );
 };
 
-export default WidgetHeader;
+export default QikpodHeader;
