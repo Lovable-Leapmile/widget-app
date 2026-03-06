@@ -31,7 +31,7 @@ const LeapmileLogin = ({
   passwordPlaceholder = "Enter your password",
   submitLabel = "Submit",
   loadingLabel = "Submitting...",
-  footerText = "© 2025 All Rights Reserved | Leapmile Logistics Pvt.Ltd",
+  footerText = "© 2026 All Rights Reserved | Leapmile Logistics Pvt.Ltd",
   footerLink = {
     label: "Terms and Condition & Privacy Policy / Cookies Policy",
     href: "https://leapmile.com/terms-and-privacy",
