@@ -1,88 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 49 100% 64%;
+    --primary-foreground: 240 10% 3.9%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
     --radius: 0.5rem;
 
+    --theme-primary: 49 100% 64%;
+    --theme-primary-foreground: 240 10% 3.9%;
+    --theme-header-bg: 49 100% 64%;
+    --theme-header-text: 0 0% 0%;
+    --theme-button-primary-bg: 49 100% 64%;
+    --theme-button-primary-text: 0 0% 0%;
+    --theme-button-primary-hover: 49 100% 54%;
+    --theme-success: 142 71% 45%;
+    --theme-warning: 38 92% 50%;
+    --theme-error: 0 84% 60%;
+    --theme-border: 240 5.9% 90%;
+    --theme-muted-text: 240 3.8% 46.1%;
+    --theme-text-primary: 240 10% 3.9%;
+    --theme-bg-light: 0 0% 98%;
+    --theme-grid-header-bg: 48 96% 89%;
+    --theme-grid-header-hover: 48 96% 77%;
+
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 49 100% 64%;
+    --primary-foreground: 240 10% 3.9%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -92,14 +83,170 @@ All colors MUST be HSL.
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
   }
+}
+
+/* Theme utility classes */
+.theme-header {
+  background-color: hsl(var(--theme-header-bg));
+  color: hsl(var(--theme-header-text));
+}
+
+.theme-button-primary {
+  background-color: hsl(var(--theme-button-primary-bg));
+  color: hsl(var(--theme-button-primary-text));
+}
+
+.theme-button-primary:hover {
+  background-color: hsl(var(--theme-button-primary-hover));
+}
+
+/* AG Grid Custom Styles */
+.ag-theme-alpine {
+  --ag-header-background-color: hsl(var(--card));
+  --ag-header-foreground-color: hsl(var(--foreground));
+  --ag-border-color: hsl(220 13% 91%);
+  --ag-row-hover-color: hsl(var(--muted) / 0.5);
+  --ag-odd-row-background-color: hsl(var(--background));
+  --ag-even-row-background-color: hsl(var(--muted) / 0.3);
+  --ag-selected-row-background-color: hsl(var(--primary) / 0.1);
+  --ag-font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --ag-font-size: 12px;
+  --ag-header-font-weight: 600;
+  --ag-cell-horizontal-padding: 20px;
+  --ag-header-height: 56px;
+  --ag-row-height: 52px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.ag-theme-alpine .ag-root-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.ag-theme-alpine .ag-header {
+  background: hsl(var(--theme-grid-header-bg));
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.ag-theme-alpine .ag-header-cell {
+  border-right: none !important;
+  border-bottom: 1px solid hsl(220 13% 91%);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: hsl(var(--theme-grid-header-bg)) !important;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  padding: 0 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ag-theme-alpine .ag-header-cell:hover {
+  background-color: hsl(var(--theme-grid-header-hover)) !important;
+}
+
+.ag-theme-alpine .ag-cell {
+  border-right: none !important;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ag-theme-alpine .ag-row {
+  border-bottom: 1px solid hsl(220 13% 91%);
+  transition: all 0.2s ease;
+}
+
+.ag-theme-alpine .ag-row:hover {
+  background-color: hsl(var(--muted) / 0.3) !important;
+}
+
+.ag-theme-alpine .ag-row.ag-row-even {
+  background-color: hsl(var(--muted) / 0.2);
+}
+
+.ag-theme-alpine .ag-row.ag-row-odd {
+  background-color: hsl(var(--background));
+}
+
+.ag-theme-alpine .ag-paging-panel {
+  border-top: 1px solid hsl(220 13% 91%);
+  background-color: hsl(var(--card));
+  padding: 16px 20px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.ag-theme-alpine .ag-header-cell-menu-button,
+.ag-theme-alpine .ag-floating-filter-button,
+.ag-theme-alpine .ag-icon-filter,
+.ag-theme-alpine .ag-header-cell-filtered::after {
+  display: none;
+}
+
+.ag-theme-alpine .ag-ltr .ag-cell,
+.ag-theme-alpine .ag-ltr .ag-header-cell {
+  border-right: none !important;
+}
+
+/* Status badges */
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-active {
+  background-color: rgb(220 252 231);
+  color: rgb(22 163 74);
+}
+
+.status-pending {
+  background-color: rgb(254 249 195);
+  color: rgb(161 98 7);
+}
+
+.status-inactive {
+  background-color: rgb(243 244 246);
+  color: rgb(107 114 128);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.4);
 }
