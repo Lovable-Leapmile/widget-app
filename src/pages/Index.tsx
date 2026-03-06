@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import { WidgetHeader, WidgetFooter, WidgetButton, WidgetTextField, WidgetDataGrid } from "@/components/widget";
 import { ColDef } from "ag-grid-community";
 import { toast } from "sonner";
@@ -104,6 +105,7 @@ const StatusRenderer = ({ value }: { value: string }) => {
 };
 
 const Index = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [filterField, setFilterField] = useState("");
 
@@ -137,7 +139,7 @@ const Index = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <WidgetHeader onAction={() => toast.success("Action triggered!")} actionLabel="New Order" />
+      <WidgetHeader onAction={() => toast.success("Action triggered!")} actionLabel="New Order" showBack />
 
       <main className="flex-1 p-6">
         <div className="mx-auto max-w-6xl animate-fade-in space-y-6">
